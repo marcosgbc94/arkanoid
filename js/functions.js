@@ -8,6 +8,7 @@ let ball = {};
 let player = {};
 let screenProperties = {};
 let blocks = [];
+let materialsColors = {};
 
 window.addEventListener('load', () => {
     window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
@@ -45,29 +46,32 @@ window.addEventListener('load', () => {
     // BALL
     ball.radius = 5;
     ball.color = "black";
-    ball.directionX = "right";
-    ball.directionY = "top";
     ball.left = (screenProperties.width/2) - (ball.radius/2);
     ball.top = (screenProperties.height - 100) - player.height;
 
     // BLOCKS
     blocks = [
-        [100, 100, 100, 20, 2, 'blue'],
-        [201, 100, 100, 20, 2, 'blue'],
-        [302, 100, 100, 20, 2, 'blue'],
-        [100, 121, 100, 20, 2, 'red'],
-        [201, 121, 100, 20, 2, 'red'],
-        [302, 121, 100, 20, 2, 'red'],
-        [100, 142, 100, 20, 2, 'green'],
-        [201, 142, 100, 20, 2, 'green'],
-        [302, 142, 100, 20, 2, 'green'],
-        [100, 163, 100, 20, 1, 'blue'],
-        [201, 163, 100, 20, 1, 'blue'],
-        [302, 163, 100, 20, 1, 'blue'],
+        [100, 100, 100, 20, 5, 'blue'],
+        [201, 100, 100, 20, 5, 'blue'],
+        [302, 100, 100, 20, 5, 'blue'],
+        [100, 121, 100, 20, 4, 'red'],
+        [201, 121, 100, 20, 4, 'red'],
+        [302, 121, 100, 20, 4, 'red'],
+        [100, 142, 100, 20, 3, 'green'],
+        [201, 142, 100, 20, 3, 'green'],
+        [302, 142, 100, 20, 3, 'green'],
+        [100, 163, 100, 20, 2, 'blue'],
+        [201, 163, 100, 20, 2, 'blue'],
+        [302, 163, 100, 20, 2, 'blue'],
         [100, 184, 100, 20, 1, 'red'],
         [201, 184, 100, 20, 1, 'red'],
         [302, 184, 100, 20, 1, 'red']
     ];
+
+    materialsColors.diamond = "#B9F2FF";
+    materialsColors.gold = "#FFD60A";
+    materialsColors.metal = "#71797E";
+    materialsColors.wood = "#966F33";
 
     window.requestAnimationFrame(init);
 });
@@ -151,7 +155,19 @@ function drawBlock() {
                 gameCanvasContext.fillRect(block[0], block[1], block[2], block[3]);
                 break;
             case 2:
-                gameCanvasContext.fillStyle = 'gray';
+                gameCanvasContext.fillStyle = materialsColors.wood;
+                gameCanvasContext.fillRect(block[0], block[1], block[2], block[3]);
+                break;
+            case 3:
+                gameCanvasContext.fillStyle = materialsColors.metal;
+                gameCanvasContext.fillRect(block[0], block[1], block[2], block[3]);
+                break;
+            case 4:
+                gameCanvasContext.fillStyle = materialsColors.gold;
+                gameCanvasContext.fillRect(block[0], block[1], block[2], block[3]);
+                break;
+            case 5:
+                gameCanvasContext.fillStyle = materialsColors.diamond;
                 gameCanvasContext.fillRect(block[0], block[1], block[2], block[3]);
                 break;
         }
@@ -269,6 +285,18 @@ function blockDestroyer(block, index) {
             break;
         case 2:
             blocks[index][4] = 1;
+            player.points += 100;
+            break;
+        case 3:
+            blocks[index][4] = 2;
+            player.points += 100;
+            break;
+        case 4:
+            blocks[index][4] = 3;
+            player.points += 100;
+            break;
+        case 5:
+            blocks[index][4] = 4;
             player.points += 100;
             break;
     }
