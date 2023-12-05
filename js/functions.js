@@ -83,12 +83,18 @@ window.addEventListener('keydown', (e) => {
         case 'arrowleft':
             if (player.left >= 20) {
                 player.left -= 20;
+                if (!gameInit) {
+                    ball.left -= 20;
+                }
             }
             break;
         case 'arrowright':
             const playerRight = player.left + player.width;
             if (playerRight < screenProperties.width) {
                 player.left += 20;
+                if (!gameInit) {
+                    ball.left += 20;
+                }
             }
             break;
         case 'enter':
@@ -203,7 +209,11 @@ function draw() {
     
     ball.left += dx;
     ball.top += dy;
-    window.requestAnimationFrame(init);
+    
+    
+    setTimeout(() => {
+        window.requestAnimationFrame(init);
+     }, 1);
 }
 
 function checkCollitionScreen() {
