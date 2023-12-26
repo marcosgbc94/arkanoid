@@ -1,0 +1,38 @@
+{
+    "rows": [
+        {
+            "columns": [
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1},
+                {"state": 1, "color": 1}
+            ]
+        },
+        {
+            "columns": [
+                {"state": 1, "color": 2},
+                {"state": 1, "color": 2}
+            ]
+        }
+    ]
+}

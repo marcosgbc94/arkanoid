@@ -1,0 +1,39 @@
+/* GENERALES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* FUENTES */
+
+@font-face {
+    font-family: montserrat-thin;
+    src: url(../fonts/Montserrat-Thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: montserrat-light;
+    src: url(../fonts/Montserrat-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: montserrat-regular;
+    src: url(../fonts/Montserrat-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: montserrat-semibold;
+    src: url(../fonts/Montserrat-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: montserrat-black;
+    src: url(../fonts/Montserrat-Black.ttf);
+    font-weight: 900;
+}

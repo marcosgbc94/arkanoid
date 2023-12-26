@@ -1,0 +1,24 @@
+/* LOADER */
+
+#loader-container {
+    align-items: center;
+    background-color: white;
+    height: 100%;
+    justify-content: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+#loader-container[data-visible="true"] {
+    display: flex;
+}
+
+#loader-container[data-visible="false"] {
+    display: none;
+}
+
+#loader-container > span {
+    font-family: montserrat-light, sans-serif;
+}
