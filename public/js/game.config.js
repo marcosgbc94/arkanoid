@@ -18,15 +18,40 @@ GAME.player.width = 100;
 GAME.player.height = 5;
 GAME.player.left = ((GAME.screen.width/2) - (GAME.player.width/2));
 GAME.player.top = (GAME.screen.height - GAME.player.height - 10);
-GAME.darkMode ? GAME.player.color = 'white' : GAME.player.color = 'blue';
+GAME.darkMode ? GAME.player.color = 2 : GAME.player.color = 3;
 GAME.player.speedMovement = 5;
 GAME.player.speedFirstBall = 2;
 // PELOTAS
-GAME.balls = [
-    {left: (GAME.screen.width/2), directionLeft: 0, top: (GAME.screen.height - GAME.player.height - 20), directionTop: 0, color: (GAME.darkMode ? 'white' : 'black'), radius: 5, borderWidth: null, borderColor: null}
-];
+GAME.balls = [{
+    left: (GAME.screen.width/2), 
+    directionLeft: 0, 
+    top: (GAME.screen.height - GAME.player.height - 20), 
+    directionTop: 0, 
+    color: (GAME.darkMode ? 2 : 1), 
+    radius: 5, 
+    borderWidth: null, 
+    borderColor: null
+}];
 // BLOQUES
 GAME.block = {};
-GAME.block.height = (GAME.screen.height/24);
-GAME.block.width = (GAME.screen.width/24);
+GAME.block.height = (GAME.screen.height/40);
+GAME.block.width = (GAME.screen.width/44);
+GAME.block.borderWidth = 1;
 GAME.blocks = [];
+// PODERES
+GAME.power = {};
+GAME.power.probability = 0.75;
+GAME.powers = [
+    {id: 1, name: "Multiples pelotas", color: 1},
+    {id: 2, name: "Barra alargada", color: 2}
+];
+GAME.powersCurrents = [];
+GAME.powerPlayerActived = false;
+// COLORES
+GAME.colors = [
+    'transparent',
+    'black',
+    'white',
+    'blue',
+    'green'
+];

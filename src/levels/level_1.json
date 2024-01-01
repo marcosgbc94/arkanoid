@@ -2,36 +2,36 @@
     "rows": [
         {
             "columns": [
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1},
-                {"state": 1, "color": 1}
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2},
+                {"state": 1, "color": 1, "borderColor": 2}
             ]
         },
         {
             "columns": [
-                {"state": 1, "color": 2},
-                {"state": 1, "color": 2}
+                {"state": 1, "color": 2, "borderColor": 1},
+                {"state": 1, "color": 2, "borderColor": 1}
             ]
         }
     ]

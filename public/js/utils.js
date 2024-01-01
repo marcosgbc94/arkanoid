@@ -1,3 +1,5 @@
+/* UTILIDADES */
+
 /**
  * Obtiene el valor de un atributo data de un elemento del DOM dado
  * @param {Element} element Elemento del DOM
@@ -144,28 +146,10 @@ function setCSSvariable(variable, value) {
     return false;
 }
 
+/**
+ * Consulta si tiene habilitado el modo oscuro la interfaz de usuario
+ * @returns {Boolean}
+ */
 function hasDarkMode() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return true;
-    }
-
-    return false;
-}
-
-function getGameLevel(level) {
-    if (!level || level === undefined || level === null)
-        return null;
-
-    try {
-        const request = new XMLHttpRequest();
-        request.open('POST', `./src/levels/level_${level}.json`, false);
-        request.send(null);
-        if (request.status !== 200) {
-            return  false;
-        }
-
-        return JSON.parse(request.responseText);
-    } catch (error) {
-        return false;
-    }
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }

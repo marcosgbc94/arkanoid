@@ -43,6 +43,11 @@ include_once "./libs/functions.php";
     <script src="./public/js/msg.functions.js"></script>
     <script src="./public/js/game.config.js"></script>
     <script src="./public/js/game.functions.js"></script>
+    <script src="./public/js/game.collitions.js"></script>
+    <script src="./public/js/game.draw.js"></script>
+    <script src="./public/js/game.movement.js"></script>
+    <script src="./public/js/game.powers.js"></script>
+    <script src="./public/js/game.events.js"></script>
 </body>
 
 </html>
