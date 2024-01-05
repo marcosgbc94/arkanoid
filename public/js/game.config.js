@@ -21,6 +21,9 @@ GAME.player.top = (GAME.screen.height - GAME.player.height - 10);
 GAME.darkMode ? GAME.player.color = 2 : GAME.player.color = 3;
 GAME.player.speedMovement = 5;
 GAME.player.speedFirstBall = 2;
+GAME.player.points = 0;
+GAME.player.lives = 5;
+GAME.player.currentLives = GAME.player.lives;
 // PELOTAS
 GAME.balls = [{
     left: (GAME.screen.width/2), 
@@ -37,6 +40,8 @@ GAME.block = {};
 GAME.block.height = (GAME.screen.height/40);
 GAME.block.width = (GAME.screen.width/44);
 GAME.block.borderWidth = 1;
+GAME.block.points = 100;
+GAME.block.lessPoints  = 500;
 GAME.blocks = [];
 // PODERES
 GAME.power = {};

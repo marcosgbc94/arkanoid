@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
     if (!setStyleToElement(GAME.element, 'background-color', GAME.screen.bgColor))
         msgManager(true, 'Error', 'No se logró cargar el color de fondo del juego.');
 
+    gameSetPlayerInfo(GAME.player.points, GAME.player.currentLives);
     setGameLevel();
     window.requestAnimationFrame(gameInit);
 });

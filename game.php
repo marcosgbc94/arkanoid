@@ -1,6 +1,6 @@
 <?php
-include_once "./libs/connection.php";
-include_once "./libs/functions.php";
+// include_once "./libs/connection.php";
+// include_once "./libs/functions.php";
 
 ?>
 

@@ -64,18 +64,16 @@ function gamePowerAddBall() {
         gamePowerPlayerExtraWidth();
     }
 
-    const firstBall = GAME.balls[0];
     GAME.balls.push({
-        left: firstBall.left + 10, 
-        directionLeft: firstBall.directionLeft, 
-        top: firstBall.top + 10, 
-        directionTop: firstBall.directionTop, 
-        color: firstBall.color, 
-        radius: firstBall.radius, 
-        borderWidth: firstBall.borderWidth, 
-        borderColor: firstBall.borderColor
+        left: (GAME.screen.width/2), 
+        directionLeft: 0, 
+        top: (GAME.screen.height - GAME.player.height - 20), 
+        directionTop: -2, 
+        color: (GAME.darkMode ? 2 : 1), 
+        radius: 5, 
+        borderWidth: null, 
+        borderColor: null
     });
-
     return true;
 }
 

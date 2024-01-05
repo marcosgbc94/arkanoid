@@ -21,6 +21,7 @@ function gameDraw() {
     gameCollitionBallsWithPlayer();
     gameCollitionBallsWithBlocks();
     gameCollitionPlayerWithPowers();
+    gameCollitionPowerWithScreen();
     gameBallsMove();
     gamePlayerMove();
     gameDrawPowers();
@@ -147,12 +148,15 @@ function gamePause() {
 }
 
 /**
- * Actualiza la puntuación del jugar por pantalla
- * @param {Number} newPoints Nuevo puntaje a actualiza
+ * Actualiza la puntuación y las vidas del jugar por pantalla
+ * @param {Number} newPoints Nuevo puntaje a actualizar
+ * @param {Number} newLives Nueva cantidad de vidas restantes a actualizar
  * @returns {Boolean}
  */
-function gameSetPlayerPoints(newPoints) {
+function gameSetPlayerInfo(newPoints, newLives) {
     if (newPoints === undefined || newPoints === null)
+        return false;
+    if (newLives === undefined || newLives === null)
         return false;
 
     const info = document.getElementById('info');
@@ -160,7 +164,7 @@ function gameSetPlayerPoints(newPoints) {
     if (!info || info === undefined || info === null)
         return false;
 
-    info.innerHTML = `Puntaje: ${newPoints} pts.`;
+    info.innerHTML = `Puntaje: ${newPoints} pts. | Vidas: ${newLives}`;
 
     return true;
 }
@@ -186,4 +190,32 @@ function getGameLevel(level) {
     } catch (error) {
         return false;
     }
+}
+
+function gameOver() {
+    GAME.init = false;
+    GAME.player.points -= GAME.block.lessPoints;
+    GAME.player.currentLives -= 1;
+    gameSetPlayerInfo(GAME.player.points, GAME.player.currentLives);
+    GAME.powersCurrents = [];
+    if (GAME.player.currentLives > 0) {
+        GAME.player.left = ((GAME.screen.width/2) - (GAME.player.width/2));
+        GAME.player.top = (GAME.screen.height - GAME.player.height - 10);
+        GAME.balls = [{
+            left: (GAME.screen.width/2), 
+            directionLeft: 0, 
+            top: (GAME.screen.height - GAME.player.height - 20), 
+            directionTop: 0, 
+            color: (GAME.darkMode ? 2 : 1), 
+            radius: 5, 
+            borderWidth: null, 
+            borderColor: null
+        }];
+    } else {
+
+    }
+}
+
+function gameSuccess() {
+
 }

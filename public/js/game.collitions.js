@@ -9,10 +9,18 @@ function gameCollitionBallsWithScreen() {
         return false;
 
     GAME.balls.forEach((ball, index) => {
-        if ((ball.left + ball.directionLeft) > (GAME.screen.width - ball.radius) || (ball.left + ball.directionLeft) < ball.radius)
-            GAME.balls[index].directionLeft = -GAME.balls[index].directionLeft;
-        if ((ball.top + ball.directionTop) > (GAME.screen.height - ball.radius) || (ball.top + ball.directionTop) < ball.radius)
-            GAME.balls[index].directionTop = -GAME.balls[index].directionTop;
+        if ((ball.top + ball.directionTop + ball.radius) >= GAME.screen.height) {
+            GAME.balls.splice(index, 1);
+            if (GAME.balls.length === 0) {
+                gameOver();
+                return true;
+            }
+        } else {
+            if ((ball.left + ball.directionLeft) > (GAME.screen.width - ball.radius) || (ball.left + ball.directionLeft) < ball.radius)
+                GAME.balls[index].directionLeft = -GAME.balls[index].directionLeft;
+            if ((ball.top + ball.directionTop) > (GAME.screen.height - ball.radius) || (ball.top + ball.directionTop) < ball.radius)
+                GAME.balls[index].directionTop = -GAME.balls[index].directionTop;
+        }
     });
 
     return true;
@@ -64,17 +72,24 @@ function gameCollitionBallsWithBlocks() {
         return false;
 
     GAME.balls.forEach((ball, indexBall) => {
-        GAME.blocks.forEach((block, indexBLock) => {
+        GAME.blocks.forEach((block, indexBlock) => {
             if ((ball.top - (ball.radius*2)) < (block.top + GAME.block.height) && (ball.top - (ball.radius*2)) > block.top) {
                 if ((ball.left + (ball.radius*2)) > block.left && (ball.left - (ball.radius*2)) < (block.left + GAME.block.width)) {
                     GAME.balls[indexBall].top = ball.top + 5;
                     GAME.balls[indexBall].directionTop = - ball.directionTop;
-                    GAME.blocks.splice(indexBLock, 1);
-                    
+
                     if (block.state === 1) {
-                        const randomNumber = (Math.random() * 100);
-                        if (randomNumber < (100*GAME.power.probability)) {
-                            gameGeneratePower(block.left, block.top);
+                        GAME.blocks.splice(indexBlock, 1);
+                        if (GAME.blocks.length > 0) {
+                            GAME.player.points += GAME.block.points;
+                            gameSetPlayerInfo(GAME.player.points, GAME.player.currentLives);
+                            const randomNumber = (Math.random() * 100);
+                            if (randomNumber < (100*GAME.power.probability)) {
+                                gameGeneratePower(block.left, block.top);
+                            }
+                        } else {
+                            gameSuccess();
+                            return true;
                         }
                     }
                 }
@@ -123,10 +138,25 @@ function gameCollitionPlayerWithPowers() {
 
     GAME.powersCurrents.forEach((power, index) => {
         if (power.left >= GAME.player.left && (power.left + GAME.block.width) <= (GAME.player.left + GAME.player.width)) {
-            if ((power.top + GAME.block.height) >= (GAME.player.top + GAME.player.height)) {
+            if ((power.top + GAME.block.height) >= (GAME.player.top + GAME.player.height) && power.top <= (GAME.player.top)) {
                 GAME.powersCurrents.splice(index, 1);
                 gameGeneratePowerPlayer(power.id);
             }
+        }
+    });
+
+    return true;
+}
+
+function gameCollitionPowerWithScreen() {
+    if (GAME.powersCurrents === undefined || GAME.powersCurrents === null || GAME.powersCurrents.length === 0)
+        return false;
+
+    GAME.powersCurrents.forEach((power, index) => {
+        if (power.top >= GAME.screen.height) {
+            GAME.powersCurrents.splice(index, 1);
+            if (GAME.powersCurrents.length === 0)
+                return true; 
         }
     });
 
